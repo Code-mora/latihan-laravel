@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\MatkulController;
 
-Route::get('/mahasiswa', [MahasiswaController:: class, 'index']);
-Route::post('/mahasiswa', [MahasiswaController:: class, 'store']);
+Route::get('/matkul', [MatkulController:: class, 'index']);
+Route::post('/matkul', [MatkulController:: class, 'store']);

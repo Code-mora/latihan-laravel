@@ -18,6 +18,12 @@
                                 class="border-gray-300 rounded-md w-full">
                         <input type="text" name="nim" placeholder="Nomor Induk Mahasiswa"
                                 class="border-gray-300 rounded-md w-full">
+                        <select name="kelas_id" class="border-gray-300 rounded-md w-full">
+                            <option value="">-- Pilih Kelas --</option>
+                            @foreach($kelas as $kls)
+                            <option value="{{ $kls->id }}">{{ $kls->nama_kelas }}</option>
+                            @endforeach
+                        </select>
                         <button type="submit"
                                 class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
                             Simpan
@@ -35,6 +41,7 @@
                             <tr>
                                 <th class="px-4 py-2 border">Nama</th>
                                 <th class="px-4 py-2 border">NIM</th>
+                                <th class="px-4 py-2 border">Kelas</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -42,7 +49,7 @@
                                 <tr>
                                     <td class="border px-4 py-2">{{ $mhs->nama}}</td>
                                     <td class="border px-4 py-2">{{ $mhs->nim}}</td>
-                                </tr>
+                                    <td class="border px-4 py-2">{{ $mhs->Kelas->nama_kelas}}</td>
                             @endforeach
                         </tbody>
                     </table>

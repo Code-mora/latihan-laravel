@@ -114,7 +114,7 @@ public function storeStep3(Request $request)
     }
     $data->save();
 
-    return redirect()->route('ekyc.step3')->with('success', 'Data pendidikan berhasil disimpan');
+    return redirect()->route('ekyc.step4')->with('success', 'Data pendidikan berhasil disimpan');
 }
 
 // step 3

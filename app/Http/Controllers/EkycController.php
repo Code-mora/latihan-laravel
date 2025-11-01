@@ -83,6 +83,8 @@ public function storeStep2(Request $request)
     return redirect()->route('ekyc.step3')->with('success', 'Step 2 Tersimpan.');
 }
 
+// step 3
+
 public function showStep3()
 {
     $data = \App\Models\EkycRegistration::where('user_id', auth()->id())->first();

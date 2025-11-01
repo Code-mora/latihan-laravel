@@ -37,7 +37,8 @@ class MasterAlamatSeeder extends Seeder
             ],
             [
                 'provinsi' => 'Jawa Timur',
-                'kota' => 'Tegalsari',
+                'kota' => 'Suarabaya',
+                'kecamatan' => 'Tegalsari',
                 'kode_pos' => '60262',
                 'created _at' => now(),
                 'updated_at' => now(),

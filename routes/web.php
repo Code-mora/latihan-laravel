@@ -51,7 +51,7 @@ Route::middleware('auth')->group(function () {
 
          // step4
         Route::get('/ekyc/step4', [EkycController::class, 'showStep4']) ->name('ekyc.step4'); 
-        // Route::post('/ekyc/step4', [EkycController::class, 'storeStep4'])->name('ekyc.step4.store');
+        Route::post('/ekyc/step4', [EkycController::class, 'storeStep4'])->name('ekyc.step4.store');
 
 
 

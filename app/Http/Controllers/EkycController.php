@@ -84,7 +84,6 @@ public function storeStep2(Request $request)
 }
 
 // step 3
-
 public function showStep3()
 {
     $data = \App\Models\EkycRegistration::where('user_id', auth()->id())->first();
@@ -118,6 +117,38 @@ public function storeStep3(Request $request)
     return redirect()->route('ekyc.step3')->with('success', 'Data pendidikan berhasil disimpan');
 }
 
+// step 3
+public function showStep4()
+{
+    $data = \App\Models\EkycRegistration::where('user_id', auth()->id())->first();
+    return view('ekyc.step4' , compact('data'));
+}
+
+public function storeStep4(Request $request)
+{
+    $request->validate([
+        'domisili'=> 'nullable|string|max:255',
+        'provinsi'=> 'nullable|string|max:255',
+        'kota'=> 'nullable|string|max:255',
+        'kecamatan'=> 'nullable|string|max:255',
+        'kode_pos'=> 'nullable|integer|max:6',
+        'nama_ibu'=> 'nullable|string|max:255',
+        'reference'=> 'nullable|string|max:255',
+    ]);
+    $data = \App\Models\EkycRegistration::where('user_id', auth()->id())->first();
+
+    $data->domisili = $request->domisili;
+    $data->provinsi = $request->asal_provinsi;
+    $data->kota = $request->kota;
+    $data->kecamatan = $request->kecamatan;
+    $data->kode_pos = $request->kode_pos;
+    $data->nama_ibu = $request->nama_ibu;
+    $data->reference = $request->reference;
+
+    $data->save();
+
+    return redirect()->route('ekyc.step4')->with('success', 'Data domisili berhasil disimpan');
+}
 
 }
 

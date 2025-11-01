@@ -10,7 +10,7 @@
             {{-- Alamat Domisili --}}
             <div class="mb-4">
                 <label class="block text-sm font-medium text-gray-700">Alamat Domisili Lengkap</label>
-                <input type="text" name="domisili" value="{{ old('asal_sd', $data->asal_sd) }}"
+                <input type="text" name="domisili" value="{{ old('domisili', $data->domisili) }}"
                     class="mt-1 block w-full border-gray-300 rounded-md">
             </div>
 
@@ -64,7 +64,7 @@
              {{-- Referensi / Sumber Informasi Pendaftaran --}}
             <div class="mb-4">
                 <label class="block text-sm font-medium text-gray-700">Referensi/Sumber Informasi Pendaftaran</label>
-                <input type="file" name="reference" class="mt-1 block w-full border-gray-300 rounded-md">
+                <input type="text" name="reference" class="mt-1 block w-full border-gray-300 rounded-md">
                 @if ($data && $data->file_ijazah)
                     <p class="text-sm text-gray-600 mt-1">File saat ini:</p>
                     <a href="{{ asset('storage/'.$data->file_ijazah) }}" target="_blank"

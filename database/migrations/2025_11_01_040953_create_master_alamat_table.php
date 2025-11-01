@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('provinsi');
             $table->string('kota');
             $table->string('kecamatan');
-            $table->string('kode_pos', 10)->nullable();
+            $table->string('kode_pos', 10)->nullable(); 
             $table->timestamps();
         });
     }

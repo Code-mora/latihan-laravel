@@ -1,52 +1,48 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Mahasiswa;
-use App\Models\Classes;
+use App\Models\Clases;
+use App\Models\mahasiswa;
 use Illuminate\Http\Request;
 
-class MahasiswaController extends Controller
+class mahasiswacontroller extends Controller
 {
     public function index()
     {
-        // $data = Mahasiswa::all();
-        // return view('mahasiswa.index', compact('data'));
-
+        // $data = mahasiswa::all();
+        // return view('mahasiswa.index',compact('data'));
         $data = Mahasiswa::with('kelas')->get();
-        $kelas = Classes::all();
-        return view('mahasiswa.index', compact('data', 'kelas'));
+        $kelas = Clases::all();
+        return view('mahasiswa.index', compact('data','kelas'));
     }
 
     public function store(Request $request)
     {
+        // dd([$request->nama,$request->nim,$request->kelas_id]);
         $request->validate([
             'nama' => 'required|string|max:255|unique:mahasiswa,nama',
             'nim' => 'required|string|max:50|unique:mahasiswa,nim',
-            'kelas_id' => 'required',
+            'kelas_id' => 'required|exists:clases,id',
         ]);
-        // dd($request->nama);
 
+       
         Mahasiswa::create([
             'nama' => $request->nama,
             'nim' => $request->nim,
             'kelas_id' => $request->kelas_id,
         ]);
 
-        
-        return redirect()->back()->with('success', 'Data mahasiswa berhasil ditambahkan');
-        // Mahasiswa::create($request->only('nama', 'nim'));
-        //     return redirect()->back();
+        return redirect()->back()->with('success', 'Data berhasil ditambahkan');
     }
 
-    // ✅ Edit
-    public function edit($id)
+
+public function edit($id)
     {
         $mhs = Mahasiswa::findOrFail($id);
         return view('mahasiswa.edit', compact('mhs'));
     }
 
-    // ✅ Update
+    // update
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -55,12 +51,12 @@ class MahasiswaController extends Controller
         ]);
 
         $mhs = Mahasiswa::findOrFail($id);
-        $mhs->update($request->only('nama', 'nim'));
+        $mhs->update($request->only('nama','nim'));
 
         return redirect()->route('mahasiswa.index')->with('success', 'Data berhasil diupdate!');
     }
 
-    // ✅ Delete
+    // delete
     public function destroy($id)
     {
         $mhs = Mahasiswa::findOrFail($id);
@@ -68,6 +64,4 @@ class MahasiswaController extends Controller
 
         return redirect()->route('mahasiswa.index')->with('success', 'Data berhasil dihapus!');
     }
-
 }
-

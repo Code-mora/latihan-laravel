@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-     <title>Data Mata Kuliah</title>
+    <title>Data Mahasiswa</title>
 </head>
 <body>
-     <h1>Tambah Mata Kuliah</h1>
-     <form method="POST" action="/matkul">
-     @csrf
-        <input type="text" name="nama" placeholder="Nama Matkul"><br>
-        <input type="text" name="deskripsi" placeholder="Deskripsi Singkat"><br>
+    <h1>Tambah MATAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</h1>
+    <form method="POST" action="/matkul">
+        @csrf
+        <input type="text" name="namamatkul" placeholder="Nama"><br>
+        <input type="text" name="deks" placeholder="Deks"><br>
         <button type="submit">Simpan</button>
- </form>
+    </form>
 
- <h2>List Mata Kuliah</h2>
+    <h2>List Mahasiswa</h2>
     <ul>
-        @foreach($data as $mtkl)
-            <li>{{ $mtkl->nama }} - {{ $mtkl->deskripsi }}</li>
+        @foreach($data as $matkul)
+            <li>{{ $matkul->namamatkul }} - {{ $matkul->deks }}</li>
         @endforeach
     </ul>
 </body>

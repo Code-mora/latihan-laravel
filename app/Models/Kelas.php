@@ -5,17 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Kelas extends Model
+class kelas extends Model
 {
-    use HasFactory;
-
-    //Nama tabel (opsional, default = "kelas" -> jamak)
-    protected $table='Kelas';
-
-    //kolom yang bisa diisi mass-assignment
-    protected $fillable = [
+     use HasFactory;
+    //nama tabel
+    protected $table = 'kelas';
+    //kolom
+    protected $fillable =[
+        'kapasitas',
         'ruangan',
-        'jumlah',
     ];
 }
-

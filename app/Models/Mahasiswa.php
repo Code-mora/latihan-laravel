@@ -2,19 +2,25 @@
 
 namespace App\Models;
 
+use App\Models\Clases;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Mahasiswa extends Model
+class mahasiswa extends Model
 {
     use HasFactory;
+    //Nama Tabel
+    protected $table ='mahasiswa';
 
-    //Nama tabel (opsional, default = "mahasiswa" -> jamak)
-    protected $table='mahasiswa';
-
-    //kolom yang bisa diisi mass-assignment
+    //kolom yang bisa di isi mass-assigment
     protected $fillable = [
         'nama',
         'nim',
+        'kelas_id'
     ];
+    
+    public function kelas()
+    {
+        return $this->belongsTo(Clases::class, 'kelas_id');
+    }
 }

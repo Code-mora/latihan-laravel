@@ -4,7 +4,7 @@
             <div class="mb-4 text-green-600">{{ session('success') }}</div>
         @endif
 
-        <form method="POST" action="" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('ekyc.step4.store') }}" enctype="multipart/form-data">
             @csrf
 
             {{-- Alamat Domisili --}}

@@ -1,20 +1,18 @@
 <?php
 
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Matkul extends Model
+class matkul extends Model
 {
     use HasFactory;
+    //nama tabel
+    protected $table ='matkul';
 
-    //Nama tabel (opsional, default = "matkul" -> jamak)
-    protected $table='matkul';
-
-    //kolom yang bisa diisi mass-assignment
+    //kolom
     protected $fillable = [
-        'nama',
-        'deskripsi',
+        'namamatkul',
+        'deks',
     ];
 }

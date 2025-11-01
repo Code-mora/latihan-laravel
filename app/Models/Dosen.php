@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Dosen extends Model
+class dosen extends Model
 {
     use HasFactory;
 
-    //Nama tabel (opsional, default = "dosen" -> jamak)
-    protected $table='Dosen';
+    // Nama Tabel
+    protected $table = 'dosen';
 
-    //kolom yang bisa diisi mass-assignment
+    // Kolom yang bisa di isi mass-assignment
     protected $fillable = [
         'nama',
         'nid',
+        'jenis_kelamin',
     ];
 }
-

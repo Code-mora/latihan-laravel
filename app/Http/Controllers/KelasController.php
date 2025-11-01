@@ -2,21 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kelas;
+use App\Models\kelas;
 use Illuminate\Http\Request;
 
-class KelasController extends Controller
+class kelascontroller extends Controller
 {
     public function index()
     {
-        $data = Kelas::all();
-        return view('kelas.index', compact('data'));
+        $data = kelas::all();
+        return
+        view('kelas.index',compact('data'));
     }
 
     public function store(Request $request)
     {
-        Kelas::create($request->only('ruangan', 'jumlah'));
-            return redirect()->back();
+        kelas::create($request->only('kapasitas','ruangan'));
+        return redirect()->back();
     }
+    //
 }
-

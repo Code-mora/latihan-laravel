@@ -77,7 +77,7 @@
         {{-- Referensi Sumber Informasi --}}
         <div class="mb-6">
             <label class="block text-sm font-medium text-gray-700">Sumber Informasi Pendaftaran</label>
-            <select name="referensi_sumber" 
+            <select name="reference" 
                 class="mt-1 block w-full border-gray-300 rounded-md">
                 <option value="">-- Pilih Sumber --</option>
                 <option value="Sosial Media" {{ (old('reference', $data->reference) == 'Sosial Media' ? 'selected' : '') }}>Sosial Media</option>

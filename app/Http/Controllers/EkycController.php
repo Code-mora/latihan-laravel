@@ -172,14 +172,13 @@ public function storeStep4(Request $request)
     $data->save();
 
     return redirect()->route('ekyc.step4')->with('success', 'Data alamat dan informasi berhasil disimpan');
-}
-$data->status = 'submitted';
+
+    $data->status = 'submitted';
     $data->save();
 
     // Arahkan ke halaman sukses (step 5)
     return redirect()->route('ekyc.step5')->with('success', 'Registrasi eKYC Anda telah selesai!');
 }
-
 public function step5()
 {
     $data = App\Models\EkycRegistration::where('user_id', auth()->id())->first();
@@ -194,8 +193,7 @@ public function step5()
     }
 
     return view('ekyc.step5', compact('data'));
+    }
 }
-
-
 
 

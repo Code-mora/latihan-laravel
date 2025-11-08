@@ -25,7 +25,7 @@
                 <label class="block text-sm font-medium text-gray-700">Provinsi</label>
                 <select name="provinsi" id="provinsi" class="mt-1 block w-full border-gray-300 rounded-md">
                     <option value="">-- Pilih Provinsi --</option>
-                    @foreach ($provinsilist as $prov)
+                    @foreach ($provinsiList as $prov)
                         <option value="{{ $prov }}" {{ old('provinsi', $data->provinsi) == $prov ? 'selected' : '' }}>
                             {{ $prov }}
                         </option>
@@ -38,7 +38,7 @@
             <label class="block text-sm font-medium text-gray-700">Kota</label>
             <select name="kota" id="kota" class="mt-1 block w-full border-gray-300 rounded-md">
                 <option value="">-- Pilih Kota --</option>
-                @foreach ($kotalist as $kota)
+                @foreach ($kotaList as $kota)
                     <option value="{{ $kota }}" {{ old('kota', $data->kota) == $kota ? 'selected' : '' }}>
                         {{ $kota }}
                     </option>
@@ -51,7 +51,7 @@
             <label class="block text-sm font-medium text-gray-700">Kecamatan</label>
             <select name="kecamatan" id="kecamatan" class="mt-1 block w-full border-gray-300 rounded-md">
                 <option value="">-- Pilih Kecamatan --</option>
-                @foreach ($kecamatanlist as $kec)
+                @foreach ($kecamatanList as $kec)
                     <option value="{{ $kec }}" {{ old('kecamatan', $data->kecamatan) == $kec ? 'selected' : '' }}>
                         {{ $kec }}
                     </option>

@@ -112,6 +112,7 @@ public function storeStep3(Request $request)
     if($request->hasFile('file_ijazah')){
         $data->file_ijazah =$request->file('file_ijazah')->store('ekyc', 'public');
     }
+    
     $data->save();
 
     return redirect()->route('ekyc.step4')->with('success', 'Data pendidikan berhasil disimpan');
@@ -145,13 +146,13 @@ public function showStep4()
 public function storeStep4(Request $request)
 {
     $request->validate([
-        'alamatDomisili'    => 'nullable|string|max:255',
+        'domisili'    => 'nullable|string|max:255',
         'provinsi'          => 'nullable|string|max:100',
         'kota'              => 'nullable|string|max:100',
         'kecamatan'         => 'nullable|string|max:100',
         'kode_pos'          => 'nullable|string|max:10',
-        'nama_ibu_kandung'  => 'nullable|string|max:100',
-        'referensi_sumber'  => 'nullable|string|max:100',
+        'nama_ibu'  => 'nullable|string|max:100',
+        'reference'  => 'nullable|string|max:100',
     ]);
 
     // Ambil data eKYC milik user login
@@ -162,13 +163,13 @@ public function storeStep4(Request $request)
     }
 
     // Simpan data alamat & informasi pendaftaran
-    $data->alamatDomisili     = $request->alamatDomisili;
-    $data->provinsi           = $request->provinsi;
-    $data->kota               = $request->kota;
-    $data->kecamatan          = $request->kecamatan;
-    $data->kode_pos           = $request->kode_pos;
-    $data->nama_ibu_kandung   = $request->nama_ibu_kandung;
-    $data->referensi_sumber   = $request->referensi_sumber;
+    $data->domisili       = $request->domisili;
+    $data->provinsi       = $request->provinsi;
+    $data->kota           = $request->kota;
+    $data->kecamatan      = $request->kecamatan;
+    $data->kode_pos       = $request->kode_pos;
+    $data->nama_ibu       = $request->nama_ibu;
+    $data->reference      = $request->reference;
     $data->save();
 
     return redirect()->route('ekyc.step4')->with('success', 'Data alamat dan informasi berhasil disimpan');

@@ -13,7 +13,7 @@ class EkycController extends Controller
     {
         // Ambil data draft user jika sudah ada
         $ekyc = EkycRegistration::where('user_id', Auth::id())
-            ->where('status', 'draft')
+            // ->where('status', 'draft')
             ->first();
 
         // Simpan session agar bisa lanjut ke step berikutnya
@@ -182,7 +182,7 @@ public function storeStep4(Request $request)
 }
 public function step5()
 {
-    $data = App\Models\EkycRegistration::where('user_id', auth()->id())->first();
+    $data = \App\Models\EkycRegistration::where('user_id', auth()->id())->first();
 
     if (!$data) {
         return redirect()->route('ekyc.step1')->with('error', 'Data eKYC tidak ditemukan');

@@ -112,7 +112,7 @@ public function storeStep3(Request $request)
     if($request->hasFile('file_ijazah')){
         $data->file_ijazah =$request->file('file_ijazah')->store('ekyc', 'public');
     }
-    
+
     $data->save();
 
     return redirect()->route('ekyc.step4')->with('success', 'Data pendidikan berhasil disimpan');
@@ -170,9 +170,9 @@ public function storeStep4(Request $request)
     $data->kode_pos       = $request->kode_pos;
     $data->nama_ibu       = $request->nama_ibu;
     $data->reference      = $request->reference;
-    $data->save();
+    // $data->save();
 
-    return redirect()->route('ekyc.step4')->with('success', 'Data alamat dan informasi berhasil disimpan');
+    // return redirect()->route('ekyc.step4')->with('success', 'Data alamat dan informasi berhasil disimpan');
 
     $data->status = 'submitted';
     $data->save();

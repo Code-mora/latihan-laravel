@@ -127,7 +127,7 @@
                 </p>
             </div>
             <div>
-                <img src="{{ asset('storage/image/landing/mahasiswa-lp3i.png') }}" class="rounded-xl shadow-lg"/>
+                <img src="{{ asset('uploads/landing/mahasiswa-lp3i.png') }}" class="rounded-xl shadow-lg"/>
             </div>
         </div>
     </section>

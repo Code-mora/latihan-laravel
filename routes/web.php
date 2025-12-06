@@ -15,9 +15,6 @@ use App\Http\Controllers\Admin\LandingNavController;
 use App\Http\Controllers\Admin\LandingProgramController;
 use App\Http\Controllers\Admin\LandingFooterController;
 
-
-
-
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -57,7 +54,9 @@ Route::middleware('auth')->group(function () {
 
     /** LANDING PAGE CMS */
     Route::prefix('admin/landing')->name('admin.landing.')->group(function () {
-        Route::resource('settings', LandingSettingController::class)->only(['index','edit','update']);
+        Route::resource('settings', LandingSettingController::class)->only([
+            'index', 'store', 'edit', 'update'
+        ]);
         Route::resource('navigation', LandingNavController::class)->except(['show']);
         Route::resource('programs', LandingProgramController::class)->except(['show']);
         Route::resource('footer',   LandingFooterController::class)->except(['show']);

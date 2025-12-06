@@ -16,10 +16,11 @@
             <h1 class="text-2xl font-bold text-blue-600">LP3I</h1>
             <!-- konten : navbar  -->
             <nav class="hidden md:flex gap-8 text-gray-700 font-medium">
-                <a href="#beranda" class="hover:text-blue-600">Beranda</a>
-                <a href="#program" class="hover:text-blue-600">Program</a>
-                <a href="#tentang" class="hover:text-blue-600">Tentang</a>
-                <a href="#kontak" class="hover:text-blue-600">Kontak</a>
+                 @foreach ($navigation as $nav)
+                    <a href="{{ $nav->url }}" class="hover:text-blue-600">
+                        {{ $nav->label }}
+                    </a>
+                @endforeach
             </nav>
 
             <div class="flex gap-3">
@@ -142,10 +143,11 @@
             <div>
                 <h4 class="text-xl font-semibold mb-3">Navigasi</h4>
                 <ul class="space-y-2 text-gray-100">
-                    <li><a href="#beranda" class="hover:underline">Beranda</a></li>
-                    <li><a href="#program" class="hover:underline">Program</a></li>
-                    <li><a href="#tentang" class="hover:underline">Tentang</a></li>
-                    <li><a href="#kontak" class="hover:underline">Kontak</a></li>
+                    @foreach ($footerNav as $itemNav)
+                        <li><a href="{{ $itemNav->url }}" class="hover:underline">
+                            {{ $itemNav->label }}
+                        </a></li>
+                    @endforeach
                 </ul>
             </div>
             <div>

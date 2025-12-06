@@ -12,7 +12,9 @@ class LandingSetting extends Model
         'key',
         'value',
         'type',
+        'status'
     ];
+
 
     // Jika ada beberapa setting yang berisi JSON, cast agar otomatis array/object
     protected $casts = [
